@@ -2,7 +2,7 @@
 This script restricts your APM in the game Starcraft II
 
 ## How to use it?
-1. Download the latest version of the APM-Manager (RAR-File)
+1. Download the latest version of the APM-Manager (RAR-File under "Releases")
 2. Unzip the APM-Manager folder anywhere
 3. Inside the folder run these files in this order:
     `RUN_AHK.bat` and `RUN_APMManager.bat`
