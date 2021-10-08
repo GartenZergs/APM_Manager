@@ -1,1 +1,0 @@
-AutoHotkey.exe mouse_script.ahk
