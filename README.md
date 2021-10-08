@@ -1,5 +1,5 @@
 # APM_Manager
-This Script restricts your APM in the game Starcraft II
+This script restricts your APM in the game Starcraft II
 
 ## How to use it?
 1. Download the latest version of the APM-Manager (RAR-File)
