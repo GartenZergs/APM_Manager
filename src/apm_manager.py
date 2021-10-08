@@ -7,15 +7,25 @@ import mouse
 import time
 from subprocess import Popen
 import os
+import configparser
 
 global actionCounter
 
+# Read
+config = configparser.ConfigParser()
+config.sections()
+config.read('settings.ini')
 
-startkey = '/'
-stopkey = 55
+startkey = '/' # Numpad /
+stopkey = 55 # Numpad *
 
-maxActions = 2
-seconds = 1
+
+maxActions = int(config['settings']['actions'])
+seconds = int(config['settings']['seconds'])
+
+APM=maxActions/seconds
+print('Your APM will be ~ ' + str(int(APM*60)))
+
 allowedKeys = [15, 29, 42, 56, 58, 91, 59, 60, 61, 62, 63, 64, 65,
                66]  # codes for alt,windows,ctrl,shift,capslock,tab,         f1,f2,f3,f4,f5,f6,f7,f8
 
@@ -68,5 +78,4 @@ while True:
     keyboard.unhook_all()  # reset keyboard-blocking
     keyboard.send(stopkey)
     keyboard.hook(keyPressed)  # block keyboard function
-
     time.sleep(seconds)
