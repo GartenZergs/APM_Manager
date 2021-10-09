@@ -21,8 +21,8 @@ hk(keyboard:=0, mouse:=0, message:="", timeout:=3) {
    }
    ;------------------
    For k,v in AllKeys {
-      IsMouseButton := Instr(v, "Wheel") || Instr(v, "Button")
-      Hotkey, *%v%, Block_Input, %  (mouse && IsMouseButton) ? "On" : "Off"
+      IsMouseButton := Instr(v, "Wheel") || Instr(v, "LButton") || Instr(v, "RButton")
+      Hotkey, *%v%, Block_Input, %  (mouse && IsMouseButton ) ? "On" : "Off"
    }
    if (message != "") {
       Progress, B1 M FS12 ZH0, %message%

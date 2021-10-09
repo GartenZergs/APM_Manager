@@ -42,6 +42,7 @@ def keyPressed(e):
         actionCounter = actionCounter + 1 / 2
         if actionCounter >= maxActions:
             blockKeyboard()
+            print("Blocked: " + e.name + ' ' + e.event_type + ' Scan-Code: ' + str(e.scan_code))
 
 
 def blockKeyboard():
@@ -59,6 +60,7 @@ def mouseleft():
     actionCounter = actionCounter + 1
     if actionCounter >= maxActions:
         keyboard.send(startkey)
+        print("Blocked: MouseLeft")
 
 
 def mouseright():
@@ -68,6 +70,7 @@ def mouseright():
     actionCounter = actionCounter + 1
     if actionCounter >= maxActions:
         keyboard.send(startkey)
+        print("Blocked: MouseLeft")
 
 
 mouse.on_click(mouseleft)
