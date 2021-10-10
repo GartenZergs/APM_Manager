@@ -16,3 +16,6 @@ Inside `settings.ini` you should see the variables
 The script will allow you to execute at most `x`actions in `y` seconds. So for example if:
 `actions=4` and `seconds=3`, you will be able to execute at most 4 keypresses or mouseclicks combined in 3 seconds. The APM is calculated with
 `APM=actions/seconds*60` , therefore it would be 80APM in this example.
+
+## Notes
+In order for the script to work you need to have either a numpad on your keyboard, or an external numpad plugged into your USB-Ports.
