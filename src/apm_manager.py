@@ -1,5 +1,4 @@
 import time
-from subprocess import Popen
 import os
 import configparser
 
