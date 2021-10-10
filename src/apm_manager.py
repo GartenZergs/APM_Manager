@@ -1,5 +1,6 @@
 import time
 import os
+from os.path import join
 import configparser
 
 import keyboard
@@ -7,10 +8,12 @@ import mouse
 
 global actionCounter
 
-# Read
+# Read settings.ini
+SETTINGS_PATH = join(__file__, '../settings.ini')
+
 config = configparser.ConfigParser()
 config.sections()
-config.read('settings.ini')
+config.read(SETTINGS_PATH)
 
 STARTKEY = '/'  # Numpad /
 STOPKEY = 55  # Numpad *
