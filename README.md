@@ -1,4 +1,4 @@
-# APM_Manager
+# APM Manager
 This script restricts your APM in the game Starcraft II
 
 ## How to use it?
@@ -19,3 +19,13 @@ The script will allow you to execute at most `x`actions in `y` seconds. So for e
 
 ## Notes
 In order for the script to work you need to have either a numpad on your keyboard, or an external numpad plugged into your USB-Ports.
+
+## Development Notes
+
+install requirements with
+
+```
+pip install -r requirements.txt
+```
+
+You need to install Autohotkey
