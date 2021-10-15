@@ -1,29 +1,28 @@
-# Dependencies: keyboard, mouse. Install them via "pip install keyboard". "pip install mouse"
-# You also need to install Autohotkey
-# APM Manager
+import time
+import os
+from os.path import join
+import configparser
 
 import keyboard
 import mouse
-import time
-from subprocess import Popen
-import os
-import configparser
 
 global actionCounter
 
-# Read
+# Read settings.ini
+SETTINGS_PATH = join(__file__, '../settings.ini')
+
 config = configparser.ConfigParser()
 config.sections()
-config.read('settings.ini')
+config.read(SETTINGS_PATH)
 
-startkey = '/' # Numpad /
-stopkey = 55 # Numpad *
+STARTKEY = '/'  # Numpad /
+STOPKEY = 55  # Numpad *
 
 
 maxActions = int(config['settings']['actions'])
 seconds = int(config['settings']['seconds'])
 
-APM=maxActions/seconds
+APM = maxActions/seconds
 print('Your APM will be ~ ' + str(int(APM*60)))
 
 allowedKeys = [15, 29, 42, 56, 58, 91, 59, 60, 61, 62, 63, 64, 65,
@@ -59,7 +58,7 @@ def mouseleft():
     print('left click')
     actionCounter = actionCounter + 1
     if actionCounter >= maxActions:
-        keyboard.send(startkey)
+        keyboard.send(STARTKEY)
         print("Blocked: MouseLeft")
 
 
@@ -69,7 +68,7 @@ def mouseright():
     print('right click')
     actionCounter = actionCounter + 1
     if actionCounter >= maxActions:
-        keyboard.send(startkey)
+        keyboard.send(STARTKEY)
         print("Blocked: MouseLeft")
 
 
@@ -79,6 +78,6 @@ mouse.on_right_click(mouseright)
 while True:
     actionCounter = 0  # reset key-counter
     keyboard.unhook_all()  # reset keyboard-blocking
-    keyboard.send(stopkey)
+    keyboard.send(STOPKEY)
     keyboard.hook(keyPressed)  # block keyboard function
     time.sleep(seconds)
